@@ -3,7 +3,7 @@
   <h2 class="text-center mt-5">My Vue Todo App</h2>
   <div class="d-flex">
     <input v-model="task" type="text" placeholder="請輸入代辦事項" class="form-control" @keyup.enter="addtask">
-  <button @click="submitTask" class="btn btn-warning" id="button" >SUBMIT</button>
+  <button @click="addtask" class="btn btn-warning" id="button" >SUBMIT</button>
   </div>
 
   <!-- task table -->
@@ -63,19 +63,6 @@ export default {
   }
   },
   methods:{
-    submitTask(){
-      if(this.task.length === 0) return;
-      if(this.editedTask ===null){
-         this.tasks.push({
-        name:this.task,
-        status:"代辦事項"
-      });
-      }else{
-        this.tasks[this.editedTask].name = this.task.name;
-        this.editedTask = null;
-      }
-      this.task= "";
-    },
     addtask(){
       if(this.task.length === 0) return;
       if(this.editedTask ===null){
